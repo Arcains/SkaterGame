@@ -11,6 +11,8 @@ public class Background {
 	private Game game;
 	private float x, y;
 	
+	boolean endOfLevel = false;
+	
 	public Background(Game game, float x, float y) {
 		this.game = game;
 		this.x = x;
@@ -26,21 +28,44 @@ public class Background {
 	
 	
 	public void render(Graphics g) {
-		g.drawImage(Assets.background_big, (int)x, (int)y, null);
-				
+		g.drawImage(Assets.background_big, (int)x, (int)y, null);	
 	}
 	
 	private void changeBackgroundLocation() {
-		if (game.getKeyManager().left && x <= -3) {
-			System.out.println(x);
-			x += 3;
-		}
-		if (game.getKeyManager().right && x >= -2558) {
-			System.out.println(x);
-			x -= 3;
 
-		
+		if (x >= -2558) {
+			x -= 3;
+		}
+		if (x < -2558) {
+			endOfLevel = true;
+		}
 	}
+
+	
+	
+	// GETTERS SETTERS
+	
+	public boolean getEndOfLevel() {
+		return endOfLevel;
+	}
+	
+	public float getX() {
+		return x;
+	}
+
+
+	public void setX(float x) {
+		this.x = x;
+	}
+
+
+	public float getY() {
+		return y;
+	}
+
+
+	public void setY(float y) {
+		this.y = y;
 	}
 
 }

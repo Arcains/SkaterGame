@@ -15,7 +15,7 @@ public abstract class Entity {
 		this.height = height;
 	}
 	
-	public abstract void update();
+	public abstract void update(boolean endOfLevel);
 	
 	public abstract void render(Graphics g);
 
@@ -54,6 +54,7 @@ public abstract class Entity {
 	public void setHeight(int height) {
 		this.height = height;
 	}
+
 	
 
 }

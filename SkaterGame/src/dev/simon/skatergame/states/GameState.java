@@ -18,14 +18,14 @@ public class GameState extends State {
 		super(game);
 		this.background = new Background(game, 0, 0);
 		this.player = new Player(game, 20, 260);
-		this.createRandomLevel = new CreateRandomLevel(game, 0, 0);
-
+		this.createRandomLevel = new CreateRandomLevel(game, 0);
 	}
+	
 
 	@Override
 	public void update() {
 		background.update();
-		player.update();
+		player.update(background.getEndOfLevel());
 		createRandomLevel.update();
 		
 	}
